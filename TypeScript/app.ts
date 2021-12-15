@@ -11,14 +11,20 @@ const sketchBoard:HTMLElement = document.getElementById("SketchBoard");
 const clearBtn:HTMLElement = document.getElementById("ClearBtn");
 const eraserBtn:HTMLElement = document.getElementById("EraserBtn");
 const pencilBtn:HTMLElement = document.getElementById("PencilBtn");
+const redBtn:HTMLElement = document.getElementById("RedBtn");
+const orangeBtn:HTMLElement = document.getElementById("OrangeBtn");
+const yellowBtn:HTMLElement = document.getElementById("YellowBtn");
+const greenBtn:HTMLElement = document.getElementById("GreenBtn");
+const blueBtn:HTMLElement = document.getElementById("BlueBtn");
+const indigoBtn:HTMLElement = document.getElementById("IndigoBtn");
+const violetBtn:HTMLElement = document.getElementById("VioletBtn");
+const whiteBtn:HTMLElement = document.getElementById("WhiteBtn");
+const blackBtn:HTMLElement = document.getElementById("BlackBtn");
 
 
 
 sketchBoard.addEventListener("mousedown", () => mouseDown = true);
 body.addEventListener("mouseup",() => mouseDown = false);
-clearBtn.addEventListener("click", clearBoard);
-eraserBtn.addEventListener("click",() => drawTool = ERASER);
-pencilBtn.addEventListener("click", () => drawTool = PENCIL);
 
 for(let i=0; i<numPixels; i++){
     let pixel:HTMLElement = document.createElement("div");
@@ -26,6 +32,20 @@ for(let i=0; i<numPixels; i++){
     pixel.addEventListener("mousemove", drawAction);
     sketchBoard.appendChild(pixel);
 }
+
+clearBtn.addEventListener("click", clearBoard);
+eraserBtn.addEventListener("click",() => drawTool = ERASER);
+pencilBtn.addEventListener("click", () => drawTool = PENCIL);
+redBtn.addEventListener("click",() => color = "red");
+orangeBtn.addEventListener("click",() => color = "orange");
+yellowBtn.addEventListener("click",() => color = "yellow");
+greenBtn.addEventListener("click",() => color = "green");
+blueBtn.addEventListener("click",() => color = "blue");
+indigoBtn.addEventListener("click",() => color = "indigo");
+violetBtn.addEventListener("click",() => color = "violet");
+whiteBtn.addEventListener("click", () => color = "white" );
+blackBtn.addEventListener("click", () => color = "black" );
+
 
 function drawAction(e:Event){
     if(mouseDown){
